@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <h2 style="display: inline-block;">{{ post.title }}</h2>
+        {% if post.published_date %}
+            <spam style="display: inline-block;" class="date">
+                <p>{{ post.published_date }}</p>
+            </spam>
+        {% endif %}
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endblock %}
