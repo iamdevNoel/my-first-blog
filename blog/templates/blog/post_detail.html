@@ -4,9 +4,12 @@
     <div class="post">
         <h2 style="display: inline-block;">{{ post.title }}</h2>
         {% if post.published_date %}
-            <spam style="display: inline-block;" class="date">
-                <p>{{ post.published_date }}</p>
-            </spam>
+        <spam style="display: inline-block;" class="date">
+            <p>{{ post.published_date }}</p>
+        </spam>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><i class="fa-solid fa-pen-to-square fa-lg"></i></i></a>
         {% endif %}
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
